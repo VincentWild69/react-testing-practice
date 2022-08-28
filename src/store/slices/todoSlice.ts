@@ -1,18 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface Todo {
+interface ITodo {
   id: string,
   title: string,
   completed: boolean,
-};
-
-interface listState {
-  list: Todo[];
 }
 
-const initialState: listState = {
+interface IListState {
+  list: ITodo[];
+}
+
+const initialState: IListState = {
   list: [],
-}
+};
 
 const todosSlice = createSlice({
   name: 'todos',

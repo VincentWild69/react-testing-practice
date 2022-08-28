@@ -1,9 +1,14 @@
+import React from 'react';
+import Loader from '../../components/Loader/Loader';
+
 const MainPage = () => {
   return (
     <div>
-      This is main page
+      <p>This is main page</p>
+      <Loader />
+      <p>jrty</p>
     </div>
-  )
-}
+  );
+};
 
 export default MainPage;
