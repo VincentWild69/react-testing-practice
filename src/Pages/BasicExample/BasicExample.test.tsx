@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import BasicExample from './BasicExample';
 
 describe('render basic example', () => {
@@ -15,8 +16,24 @@ describe('render basic example', () => {
 
   test('renders async text', async () => {
     render(<BasicExample />);
+    const notRenderEl = screen.queryByText(/data/i);
+    expect(notRenderEl).not.toBeInTheDocument();
     // screen.debug();
-    const datas = await screen.findByText(/data/i);
-    expect(datas).toBeInTheDocument();
+    // WTF! this test success if here is debug, and fail without
+    const data = await screen.findByText(/data/i);
+    expect(data).toBeInTheDocument();
+  });
+});
+
+describe('button work', () => {
+  test('button open and close active element', () => {
+    render(<BasicExample />);
+    const btn = screen.getByText(/click/i);
+    userEvent.click(btn);
+    let activeEl = screen.queryByText(/active/i);
+    expect(activeEl).toBeInTheDocument();
+    userEvent.click(btn);
+    activeEl = screen.queryByText(/active/i);
+    expect(activeEl).not.toBeInTheDocument();
   });
 });

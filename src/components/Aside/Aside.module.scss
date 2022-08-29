@@ -1,0 +1,27 @@
+.aside {
+  padding: 20px 15px;
+  background-color: #99c5e9;
+  .nav {
+    display: flex;
+    flex-direction: column;
+  }
+  .menuLink {
+    display: block;
+    color: #43ce43;
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.1s;
+  }
+  .menuLink:hover {
+    color: #168d26;
+    transition: 0.1s;
+  }
+  .menuLinkActive {
+    display: block;
+    color: #053e94;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.1s;
+    text-decoration: underline;
+  }
+}

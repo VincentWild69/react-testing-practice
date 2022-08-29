@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<MainPage />} />
-          <Route path="basic" element={<BasicExample />} />
+          <Route path="basicexample" element={<BasicExample />} />
           {/* <Route path='contacts' element={<Contacts />} />
           <Route path='users' element={<Users />} />
           <Route path='users/:id' element={<ProfilePage />} /> */}
