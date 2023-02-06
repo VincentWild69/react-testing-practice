@@ -40,6 +40,7 @@
       "no-param-reassign": 0,
       "comma-dangle": 0,
       "block-spacing": 0,
+      "import/prefer-default-export": 0,
       "@typescript-eslint/comma-dangle": 0,
       "@typescript-eslint/object-curly-spacing": 0
     }

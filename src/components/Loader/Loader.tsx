@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Loader.module.scss';
 import { ILoaderProps } from './interfaces/ILoaderProps';
 
-const Loader: React.FC<ILoaderProps> = ({boxHeight = '50px', size = '50px'}) => {
+const Loader: React.FC<ILoaderProps> = ({boxHeight = '50px', size = '50px', color = '#4fc56b'}) => {
   return (
     <div
       className={styles.loaderWrapper}
@@ -14,7 +14,7 @@ const Loader: React.FC<ILoaderProps> = ({boxHeight = '50px', size = '50px'}) => 
     >
       <div className={styles.loaderBody}>
         <svg
-          stroke="#4fc56b"
+          stroke={color}
           viewBox="0 0 40 40"
           className={styles.loaderSvg}
           style={{

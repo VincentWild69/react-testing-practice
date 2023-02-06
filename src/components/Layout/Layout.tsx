@@ -10,7 +10,7 @@ const Layout = () => {
       <Header />
       <div className={styles.content}>
         <Aside />
-        <main className={styles.main}>
+        <main className={styles.main} data-testid="main">
           <Outlet />
         </main>
       </div>

@@ -1,9 +1,12 @@
+import clsx from 'clsx';
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './BasicExample.module.scss';
+import Button from '../../components/Button/Button';
 
 const BasicExample = () => {
   const [data, setData] = useState<string>('');
   const [elActive, setElActive] = useState<boolean>(false);
+  const [inputValue, setInputValue] = useState<string>('');
   const timeout = useRef<NodeJS.Timeout | null>(null);
 
   const btnClick = () => {
@@ -11,13 +14,13 @@ const BasicExample = () => {
   };
 
   useEffect(() => {
-    timeout.current = setTimeout(() => {
-      setData('data ready');
+    timeout.current = setInterval(() => {
+      setData(String(Math.random().toFixed(2)));
     }, 1000);
     
     return () => {
       if (timeout.current) {
-        clearTimeout(timeout.current);
+        clearInterval(timeout.current);
       }
     };
   }, []);
@@ -25,22 +28,36 @@ const BasicExample = () => {
   return (
     <div className={styles.wrapper}>
       <h2>basic test</h2>
-      <p>{`Its timouted text: ${data}`}</p>
+      <p>
+        Its timouted text:&nbsp;
+        <span className={clsx({
+          [styles.redText]: true,
+          [styles.orangeText]: elActive
+        })}
+        >
+          {data}
+        </span>
+      </p>
       <div>
-        <button
+        <Button
           className={styles.btn}
-          type="button"
           onClick={btnClick}
         >
           click
-        </button>
+        </Button>
         {elActive && <p style={{backgroundColor: 'khaki'}}>You see active element</p>}
       </div>
       <input
+        value={inputValue}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>): void => setInputValue(e.target.value)}
         className={styles.input}
         type="text"
         placeholder="type..."
       />
+      <Button type="submit">custom button</Button>
+      <div style={{border: '1px solid grey'}}>
+        <Button clear>clear button</Button>
+      </div>
     </div>
   );
 };

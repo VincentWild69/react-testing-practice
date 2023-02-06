@@ -30,10 +30,8 @@ describe('button work', () => {
     render(<BasicExample />);
     const btn = screen.getByText(/click/i);
     userEvent.click(btn);
-    let activeEl = screen.queryByText(/active/i);
-    expect(activeEl).toBeInTheDocument();
+    expect(screen.queryByText(/active/i)).toBeInTheDocument();
     userEvent.click(btn);
-    activeEl = screen.queryByText(/active/i);
-    expect(activeEl).not.toBeInTheDocument();
+    expect(screen.queryByText(/active/i)).not.toBeInTheDocument();
   });
 });

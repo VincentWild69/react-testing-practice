@@ -1,0 +1,14 @@
+.customBtn {
+  padding: 5px;
+  border: 1px solid #5f74e9;
+  border-radius: 4px;
+  background-color: #a0ccff;
+  transition: 0.1s ease;
+  &:hover {
+    background-color: #79b4f7;
+    transition: 0.1s ease;
+  }
+  &:active {
+    background-color: #569ef0;
+  }
+}
